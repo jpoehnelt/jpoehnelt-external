@@ -8,7 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: npm i firebase-tools
-      - run: firebase deploy --only functions --message \"${{ github.event.head_commit.message }}\"
+      - run: npx firebase-tools deploy --only functions --message \"${{ github.event.head_commit.message }}\"
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
