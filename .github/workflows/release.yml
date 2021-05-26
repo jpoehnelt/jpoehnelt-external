@@ -8,6 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: npx firebase-tools deploy --only functions
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - working-directory: functions
+        run: npm i
+      - run: npx firebase-tools deploy --token "$FIREBASE_TOKEN" --only functions
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
