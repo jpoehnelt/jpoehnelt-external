@@ -2,7 +2,8 @@ import * as functions from "firebase-functions";
 
 import md5 from "md5";
 
-// eslint-disable-next-line Note: this package has a bad .d.ts
+// Note: this package has a bad .d.ts
+// eslint-disable-next-line
 const mailchimp = require("@mailchimp/mailchimp_marketing");
 
 mailchimp.setConfig({
@@ -33,9 +34,9 @@ export const addTransitionTagToMembers = async (): Promise<void> => {
   });
 
   const filtered = response.members
-  .filter((m: Member) => {
+  .filter((m: Member): boolean => {
     return (
-      m.tags == undefined || m.tags.map((t: any) => t.name).indexOf(TAG_NAME) === -1
+      m.tags == undefined || m.tags.map((t: any): string => t.name).indexOf(TAG_NAME) === -1
     );
   });
 
