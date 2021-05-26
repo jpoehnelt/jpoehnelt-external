@@ -2,7 +2,7 @@ import * as functions from "firebase-functions";
 
 import md5 from "md5";
 
-// eslint-disable-next-line
+// eslint-disable-next-line Note: this package has a bad .d.ts
 const mailchimp = require("@mailchimp/mailchimp_marketing");
 
 mailchimp.setConfig({
@@ -28,9 +28,8 @@ export const addTransitionTagToMembers = async (): Promise<void> => {
       "members.email_address",
       "members.tags",
       "members.stats",
-      "members.status",
     ],
-    count: 2000,
+    count: 10000,
   });
 
   const filtered = response.members
