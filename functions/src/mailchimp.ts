@@ -12,7 +12,7 @@ mailchimp.setConfig({
 });
 
 const LIST_ID = functions.config().mailchimp.list;
-const TAG_NAME = "test";
+const TAG_NAME = "transitioned";
 
 export const addTransitionTagToMembers = async (): Promise<void> => {
   interface Member {
