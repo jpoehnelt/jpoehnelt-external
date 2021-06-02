@@ -54,7 +54,7 @@ export const addTransitionTagToMembers = async (): Promise<void> => {
     );
   });
 
-  const sliced = sorted.slice(0, 10);
+  const sliced = sorted.slice(0, 100);
 
   await Promise.all(
     sliced.map(async (m: Member) => {
